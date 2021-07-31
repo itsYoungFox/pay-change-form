@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Area Manager | Karali-Group{% endblock %}
+
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet/less" type="text/css" href="assets/less/pages/area_manager.style.less">
+{% endblock %}
+
+{% block body %}
+  <div class="container main">
+    <div class="row">
+      <div class="col menu_bar">
+        <button id="req_nav_btn" type="button" class="active"><span>Requests</span><i class="fas fa-ticket-alt"></i></button>
+        <button id="proll_nav_btn" type="button"><span>PayRoll</span><i class="fas fa-money-check-alt"></i></button>
+      </div>
+      <div class="col main_body">
+        <div class="container" id="area_mngr_body">
+
+          <!-- REQUESTS TABLE -->
+          <table class="inbox_body_table" id="req_body" data-mode="active">
+            <thead>
+              <tr>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 0);" title="Sort by ID">ID</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 1);" title="Sort by Title">Title</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 2);" title="Sort by From">From</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 3);" title="Sort by Approval">Approval</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 4);" title="Sort by Datetime" data-sort="desc">Datetime</th>
+              </tr>
+            </thead>
+            <tbody id="dynamic_row_holder">
+              <tr> <td></td> <td>Nothing here!</td></tr>
+              <!-- <tr><td>cell1_1</td><td>cell2_1</td><td>cell3_1</td><td>cell4_1</td></tr> -->
+            </tbody>
+          </table>
+
+          <!-- PAYROLL TABLE -->
+          <table class="inbox_body_table" id="payroll_body" data-mode="inactive">
+            <thead>
+              <tr>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 0);" title="Sort by Employee number">No</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 1);" title="Sort by Employee name">Name</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 2);" title="Sort by Restaurant">Restaurant</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 3);" title="Sort by Restaurant Area">Area</th>
+                <th onclick="sortTable(this.parentNode.parentNode.parentNode, this, 4);" title="Sort by Employee PayRate" data-sort="desc">PayRate [£/hr]</th>
+              </tr>
+            </thead>
+            <tbody id="dynamic_payroll_row_holder">
+              <tr> <td></td> <td>Nothing here!</td></tr>
+              <!-- <tr><td>cell1_1</td><td>cell2_1</td><td>cell3_1</td><td>cell4_1</td></tr> -->
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  {{ parent() }}
+  <script src="assets/js/pages/area_manager.script.js" charset="utf-8"></script>
+{% endblock %}

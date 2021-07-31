@@ -1,0 +1,108 @@
+//#! pay_change.style.less
+@import "../style.less";
+@import "../variables/mixin.less";
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  .swiper-wrapper {
+    .swiper-slide {
+      display: flex;
+      flex-flow: column;
+    }
+  }
+  .swiper-pagination {
+    width: 14px !important;
+    right: 26px !important;
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      &.swiper-pagination-bullet-active {
+        background: var(--pry-col,var(--sec-col));
+      }
+    }
+  }
+}
+
+
+.container {
+  &.header {
+    margin-bottom: auto;
+  }
+  &.main {
+    margin: auto;
+    // margin-top: 240px;
+    .row {
+      &.header {
+        text-align: center;
+        h1 { font-size: 100px; }
+        h2 { font-size: 50px; margin-bottom: 50px; }
+        h3 { font-size: 25px; }
+        label {
+          text-align: left;
+          width: 87%;
+          margin: auto;
+          margin-top: 20px;
+          margin-bottom: 10px;
+          font-size: 20px;
+          border-left: 3px solid var(--pry-col);
+        }
+        input {
+          padding: 19px 30px;
+          width: 87%;
+          margin: auto;
+          &[name="employee_data"] {
+            text-align: center;
+          }
+        }
+        textarea {
+          resize: vertical;
+          padding: 19px 30px;
+          width: 87%;
+          margin: auto;
+          &[name="employee_data"] {
+            text-align: center;
+          }
+        }
+      }
+      &.btn_holder {
+        margin: 50px auto;
+        button {
+          width: max-content;
+          margin: auto;
+          border: none;
+          padding: 14px 37px;
+          border-radius: 5px;
+          position: relative;
+          overflow: hidden;
+          transition: .3s;
+          * { z-index: 2; position: relative; }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translate(0%, -50%);
+            z-index: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--pry-col);
+            opacity: 0;
+            transition: all .2s linear;
+          }
+          &:hover {
+            cursor: pointer;
+            color: white;
+            transform: scale(1.2);
+            &::after {
+              width: 120%;
+              height: 100px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

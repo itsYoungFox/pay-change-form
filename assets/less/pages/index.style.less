@@ -1,0 +1,76 @@
+//#! index.style.less
+@import "../style.less";
+@import "../variables/mixin.less";
+
+
+.container {
+  &.main {
+    height: 100%;
+    .row {
+      height: 100%;
+      width: max-content;
+      margin: auto;
+      .col {
+        &.pay_change, &.area_manager {
+          display: flex;
+          flex-flow: column;
+          margin: auto;
+          label {
+            position: relative;
+            @boxSize: 400px;
+            width: @boxSize;
+            height: @boxSize;
+            background-color: var(--light-gray-3);
+            border-radius: 10px;
+            transition: all .3s ease;
+            text-align: center;
+            display: flex;
+            flex-flow: column;
+            margin: auto;
+            overflow: hidden;
+            &::after {
+              content: '';
+              opacity: 0;
+              width: 0px;
+              height: 0px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: var(--pry-col);
+              border-radius: 50%;
+              z-index: 0;
+              transition: all .2s linear;
+            }
+            &:hover {
+              cursor: pointer;
+              transform: scale(1.07);
+              color: #fff;
+              &::after {
+                opacity: 1;
+                width:  150%;
+                height: 150%;
+              }
+            }
+            &[for="pay_change_link"] {}
+            &[for="area_manager_link"] {}
+            .icon, .text {
+              margin: auto;
+              z-index: 2;
+            }
+            .icon {
+              font-size: 9vw;
+            }
+            .text {
+              margin-top: 0;
+              font-size: 18px;
+              font-weight: 700;
+            }
+          }
+        }
+        &.pay_change{}
+        &.area_manager{}
+      }
+    }
+  }
+}

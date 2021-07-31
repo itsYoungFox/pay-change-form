@@ -1,0 +1,48 @@
+@import "./variables/mixin.less";
+@import "./variables/colors.less";
+
+
+html {
+  background-color: var(--white);
+  height: 100%;
+  body {
+    margin: auto;
+    font: 100% Helvetica, sans-serif;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+}
+
+* {
+  scroll-behavior: smooth !important;
+}
+
+
+select {
+	padding: 5px 35px 5px 5px;
+	font-size: 16px;
+	border: 1px solid #CCC;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url(./favicon.ico) 49.5% no-repeat #EEE;
+	width: -moz-available;
+	width: -webkit-fill-available;
+}
+
+.container {
+  &.header {
+    margin-bottom: -100px;
+    padding: 25px 0px;
+    border-bottom: 2px solid var(--pry-col);
+    .row {
+      .col {
+        text-align: center;
+        img {
+          width: 60px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Karali-Group | Services{% endblock %}
+
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet/less" type="text/css" href="assets/less/pages/index.style.less">
+{% endblock %}
+
+{% block body %}
+  <div class="container main">
+    <section class="row">
+      <div class="col pay_change">
+        <button onclick="window.location.href='./pay_change'" id="pay_change_link" style="display: none;"></button>
+        <label for="pay_change_link">
+          <div class="icon">
+            <i class="fas fa-file-invoice"></i>
+          </div>
+          <div class="text">Pay Change</div>
+        </label>
+      </div>
+      <div class="col area_manager">
+        <button onclick="window.location.href='./area_manager'" id="area_manager_link" style="display: none;"></button>
+        <label for="area_manager_link">
+          <div class="icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="text">Area manager</div>
+        </label>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="assets/js/pages/index.script.js" charset="utf-8"></script>
+{% endblock %}

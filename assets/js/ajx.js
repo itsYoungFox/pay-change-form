@@ -31,7 +31,8 @@ function ajx(obj) {
 
   let area = (!obj.hasOwnProperty('area')) ? "width" : obj.area;
 
-  ajaxProcess[JSON.stringify(loaderID)] = $.ajax({
+  // ajaxProcess[JSON.stringify(loaderID)] = $.ajax({
+  $.ajax({
     xhr: function()
     {
       let xhr = new window.XMLHttpRequest();
@@ -83,8 +84,8 @@ function ajx(obj) {
     data: data,
     success: function(result) {
       if (isJson(result)) {
-        let res = JSON.parse(result);
-        if (res.session_id == "") {
+        let resJSON = JSON.parse(result);
+        if (resJSON !== null && (resJSON.hasOwnProperty('session_id') && resJSON.session_id == "")) {
           swal({icon: "error",title: "error",text: "Session expired, please log in again"});
           return false;
         }

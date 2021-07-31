@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pay Change | Karali-Group{% endblock %}
+
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+   <link rel="stylesheet/less" type="text/css" href="assets/less/pages/pay_change.style.less">
+{% endblock %}
+
+{% block body %}
+  <!-- Slider main container -->
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <div class="container main">
+          <div class="row header">
+            <h1>Welcome!</h1>
+            <h3>Let's get that pay change request to one of our area managers.</h3>
+          </div>
+          <div class="row btn_holder">
+            <button type="button" id="start"> <span>Start</span> </button>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide" id="slide-1"></div>
+      <!-- <div class="swiper-slide">Slide 3</div> -->
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  {{ parent() }}
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/pages/pay_change.script.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    let startButton = document.getElementById('start');
+    startButton.addEventListener('click', () => {
+      if (main_content_swiper) {
+        if (document.getElementById('slide-2') === null) {
+          main_content_swiper.appendSlide(['<div class="swiper-slide" id="slide-2"></div>']);
+
+          let slide_1 = document.getElementById('slide-1');
+          let makeSlide1 = generate_slide(1, slide_1);
+        }
+        main_content_swiper.slideTo(1, 700, false);
+      }
+    });
+  </script>
+{% endblock %}

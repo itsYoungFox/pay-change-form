@@ -2,5 +2,5 @@
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'boiler_db');
+define('DB_DATABASE', 'karali_group_db');
 ?>
